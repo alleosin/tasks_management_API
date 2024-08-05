@@ -19,9 +19,23 @@ from django.urls import path, include, re_path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
 from profiles.views import ProfilesAPIList
+from tasks.views import *
+from rest_framework import routers
+
+# router = routers.SimpleRouter()
+# router.register(r'tasks', TasksViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # path("api/", include(router.urls)),
+
+    # path("api/tasks/", TasksAPIList.as_view()),
+    # path("api/tasks/<int:pk>/", TaskAPIUpdate.as_view()),
+
+    path("api/tasks/", TasksAPIView.as_view()),
+    path("api/tasks/<int:pk>/", TasksAPIView.as_view()),
+
 
     path("api/profiles/", ProfilesAPIList.as_view()),
 
