@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
-    user = models.ForeignKey(User, verbose_name="User", on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, verbose_name="User", on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE)
     patronymic = models.CharField(max_length=150)
     phone_number = models.CharField(max_length=150, unique=True)
 
