@@ -15,10 +15,15 @@ djangorestframework~=3.15.2
 
 Endpoints:
 /api/token/ - send raw JSON POST request, containing username and password to authorize in system and get refresh and access tokens
+
 /api/token/refresh/ - send raw JSON POST request, containing "refresh" token to get new access token
+
 /api/auth/users/ - send raw JSON POST request, containing email, username, and password to create new user
+
 /api/profiles/ - send a GET request with an access token to view a list of existing profiles
+
 /api/tasks/ - send a GET requet with an access token as a Customer to view tasks created by this Customer
             - send a POST request, containing tittle and description of task with an access token as a Customer to create new task
             - send a GET request with an access token as an Employee to view tasks taken by this Employee
+            
 /api/tasks/<task's id> - send PUT request, containing status and report with access token as an Employee to change status of task having that id
